@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6278705209941977"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مواقيت الصلاة </title>
+  <style>
+    @media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  input[type="text"] {
+    width: 90%;
+    font-size: 0.9em;
+  }
+
+  .prayer p {
+    font-size: 1em;
+  }
+
+  .prayer {
+    padding: 10px;
+    box-shadow: none;
+  }
+  .header{
+    width: 190px;
+    height:100;
+  }
+}
+
+.prayer:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .prayer-times {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .prayer {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .prayer h2 {
+      margin: 0 0 10px;
+      color: #2980b9;
+    }
+    .prayer p {
+      font-size: 1.2em;
+    }
+    .header {
+  background-color: black; /* Background color of the header */
+  color: white; /* Text color */
+  padding: 20px; /* Space inside the header */
+  text-align: center; /* Center align the text */
+  position: fixed; /* Keep the header at the top */
+  top: 0;
+  width: 100%; /* Stretch header to full width */
+  z-index: 1000; /* Make sure it stays above other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  text-decoration: none;
+  text-decoration-line:none ;
+  
+}
+        .footer {
+  text-align: center;
+  padding: 20px;
+  background-color: black; /* لون الخلفية */
+  color: white; /* لون النص */
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ccc; /* خط علوي لفصل الفوتر */
+}
+.navigation {
+  margin-top: 10px;
+}
+
+.navigation a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+  margin: 0 15px; /* Spacing between links */
+  font-weight: bold; /* Bold text for links */
+}
+
+.navigation a:hover {
+  text-decoration: underline; /* Add underline on hover */
+  background:white;
+  color:black;
+  padding:2px;
+}
+.active{
+  background:green;
+  color:white;
+  padding:2px
+}
+
+  </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation">
+            <a href="homepage.html" class="non-active"><b><i>I</i></b>Muslim</a>
+            <a href="azkar.html">أذكار</a>
+        <a href="hadeth.html">حديث</a>
+        <a href="quran.html">قران</a>
+        <a href="99.html">أسماء الله الحسنى</a>
+        <a href="chatbot.html">chatbot</a>
+        <a href="1.html" class="active">مواقيت الصلاة</a>
+        </nav>
+       
+    </header>
+    <br><br><br><br><br><br><br><br>
+    <!DOCTYPE html>
+    <html lang="ar">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>مواقيت الصلاة حول العالم</title>
+      <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background: #f0f4f8;
+          color: #333;
+          text-align: center;
+          padding: 20px;
+        }
+        h1 {
+          color: #2c3e50;
+        }
+        .search-container {
+          margin-top: 20px;
+        }
+        input[type="text"] {
+          padding: 10px;
+          width: 80%;
+          max-width: 400px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          font-size: 1em;
+        }
+        .prayer-times {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 20px;
+          margin-top: 30px;
+        }
+        .prayer {
+          background: white;
+          padding: 15px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .prayer h2 {
+          margin: 0 0 10px;
+          color: #2980b9;
+        }
+        .prayer p {
+          font-size: 1.2em;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>مواقيت الصلاة حول العالم</h1>
+      <p id="date"></p>
+      <div class="search-container">
+        <input type="text" id="cityInput" placeholder="اكتب اسم المدينة..." onkeypress="if(event.key==='Enter') getPrayerTimes()" />
+      </div>
+      <div class="prayer-times" id="prayerTimes"></div>
+    
+      <script>
+        const prayerNames = {
+          Fajr: 'الفجر',
+          Dhuhr: 'الظهر',
+          Asr: 'العصر',
+          Maghrib: 'المغرب',
+          Isha: 'العشاء'
+        };
+    
+        const today = new Date();
+        const dateEl = document.getElementById("date");
+        dateEl.textContent = today.toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    
+        function getPrayerTimes() {
+          const city = document.getElementById("cityInput").value || "Cairo";
+          fetch(`https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(city)}&country=&method=5`)
+            .then(response => response.json())
+            .then(data => {
+              const timings = data.data.timings;
+              const prayerContainer = document.getElementById("prayerTimes");
+              prayerContainer.innerHTML = "";
+    
+              for (const key in prayerNames) {
+                const div = document.createElement("div");
+                div.className = "prayer";
+                div.innerHTML = `
+                  <h2>${prayerNames[key]}</h2>
+                  <p>${timings[key]}</p>
+                `;
+                prayerContainer.appendChild(div);
+              }
+            })
+            .catch(error => {
+              console.error("فشل في جلب البيانات:", error);
+              const prayerContainer = document.getElementById("prayerTimes");
+              prayerContainer.innerHTML = "<p>لم يتم العثور على المدينة. حاول مرة أخرى.</p>";
+            });
+        }
+    
+        // جلب تلقائي عند فتح الصفحة
+        getPrayerTimes();
+      </script>
+    </body>
+    </html>
+    
+</body>
+</html>

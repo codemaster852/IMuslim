@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6278705209941977"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Surahs</title>
+    <style>
+        body {
+            font-family: "Amiri", serif;
+            margin: 20px;
+            background-color: #f3f0e9;
+            color: #2b2118;
+            line-height: 1.8;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4a3b2d;
+        }
+        select {
+            font-size: 1.2em;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .surah-content {
+            border: 2px solid #a89f91;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .surah-content h2 {
+            font-size: 2em;
+            color: #4a3b2d;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .surah-content p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .surah-content ol {
+            font-size: 1.5em;
+            padding-left: 0;
+            list-style: none;
+            text-align: center;
+        }
+        .surah-content ol li {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .ayah-number {
+            font-size: 0.8em;
+            color: #fff;
+            background-color: #4a3b2d;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .ayah-text {
+            text-align: justify;
+            font-size: 1.5em;
+            line-height: 2;
+        }
+        .highlight {
+            background-color: yellow; /* Highlight color for the current Ayah */
+        }
+        .header {
+            background-color: black; /* Background color of the header */
+            color: white; /* Text color */
+            padding: 20px; /* Space inside the header */
+            text-align: center; /* Center align the text */
+            position: fixed; /* Keep the header at the top */
+            top: 0;
+            width: 100%; /* Stretch header to full width */
+            z-index: 1000; /* Make sure it stays above other elements */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            text-decoration: none;
+            text-decoration-line:none ;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: black; /* لون الخلفية */
+            color: white; /* لون النص */
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ccc; /* خط علوي لفصل الفوتر */
+        }
+        .navigation {
+            margin-top: 10px;
+        }
+        .navigation a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+            margin: 0 15px; /* Spacing between links */
+            font-weight: bold; /* Bold text for links */
+        }
+        .navigation a:hover {
+            text-decoration: underline; /* Add underline on hover */
+            background:white;
+            color:black;
+            padding:3px;
+        }
+        .active {
+            background: green;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com /css2?family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation">
+            <a href="homepage.html" class="non-active"><b><i>I</i></b>Muslim</a>
+            <a href="azkar.html">أذكار</a>
+            <a href="hadeth.html">حديث</a>
+            <a href="quran.html" class="active">قران</a>
+            <a href="99.html">أسماء الله الحسنى</a>
+            <a href="chatbot.html">chatbot</a>
+            <a href="1.html">مواقيت الصلاة</a>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <h1>Quran Surahs</h1>
+    <div>
+        <select id="surahSelect" onchange="handleSurahSelection()">
+            <option value="" selected disabled>Select a Surah</option>
+            <!-- Surahs will be populated here -->
+        </select>
+    </div>
+    <button id="playSurahButton" style="display:none;" onclick="playSurah()">Play Entire Surah</button>
+    <div class="surah-content" id="surahContent">
+        <p>Select a Surah to view its content.</p>
+    </div>
+    <audio id="ayahAudio" controls style="display:none;"></audio>
+
+    <script>
+        let currentAyahIndex = 0;
+        let ayahs = [];
+
+        // Fetch the list of Surahs and populate the select dropdown
+        async function fetchSurahs() {
+            try {
+                const response = await fetch('https://api.alquran.cloud/v1/surah');
+                const data = await response.json();
+
+                if (data.code === 200) {
+                    const surahs = data.data;
+                    const surahSelect = document.getElementById('surahSelect');
+
+                    surahs.forEach(surah => {
+                        const option = document.createElement('option');
+                        option.value = surah.number;
+                        option.textContent = `${surah.number}. ${surah.englishName} (${surah.name})`;
+                        surahSelect.appendChild(option);
+                    });
+                } else {
+                    console.error('Failed to fetch Surahs:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching Surahs:', error);
+            }
+        }
+
+        // Fetch the content of a specific Surah and display it
+        async function fetchSurahContent(surahNumber) {
+            try {
+                const response = await fetch(`https://api.alquran.cloud/v1/surah/${surahNumber}`);
+                const data = await response.json();
+
+                if (data.code === 200) {
+                    const surah = data.data;
+                    const surahContent = document.getElementById('surahContent');
+                    ayahs = surah.ayahs; // Store ayahs for playback
+
+                    surahContent.innerHTML = `
+                        <h2>${surah.englishName} (${surah.name})</h2>
+                        <p><strong>Revelation Type:</strong> ${surah.revelationType}</p>
+                        <ol>
+                            ${surah.ayahs.map((ayah, index) => `
+                                <li id="ayah-${index}" onclick="playAyahAudio(${index})">
+                                    <div class="ayah-number">${ayah.numberInSurah}</div>
+                                    <div class="ayah-text">${ayah.text}</div>
+                                </li>
+                            `).join('')}
+                        </ol>
+                    `;
+                    document.getElementById('playSurahButton').style.display = 'block'; // Show play button
+                } else {
+                    console.error('Failed to fetch Surah content:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching Surah content:', error);
+            }
+        }
+
+        // Play Ayah audio when clicked
+        function playAyahAudio(index) {
+            const audio = document.getElementById('ayahAudio');
+            const ayah = ayahs[index];
+            audio.src = `https://path_to_audio_files/${ayah.numberInSurah}.mp3`; // Example URL
+            audio.play();
+            highlightAyah(index);
+        }
+
+        // Highlight the currently reading Ayah
+        function highlightAyah(index) {
+            const previousAyah = document.getElementById(`ayah-${currentAyahIndex}`);
+            if (previousAyah) {
+                previousAyah.classList.remove('highlight');
+            }
+            const currentAyah = document.getElementById(`ayah-${index}`);
+            if (currentAyah) {
+                currentAyah.classList.add('highlight');
+                currentAyah.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            currentAyahIndex = index;
+        }
+
+        // Play the entire Surah
+        function playSurah() {
+            const audio = document.getElementById('ayahAudio');
+            currentAyahIndex = 0; // Reset to the first Ayah
+            playNextAyah();
+        }
+
+        // Play the next Ayah in the Surah
+        function playNextAyah() {
+            if (currentAyahIndex < ayahs.length) {
+                const ayah = ayahs[currentAyahIndex];
+                const audio = document.getElementById('ayahAudio');
+                audio.src = `https://path_to_audio_files/${ayah.numberInSurah}.mp3`; // Example URL
+                audio.play();
+                highlightAyah(currentAyahIndex);
+                currentAyahIndex++;
+
+                audio.onended = () => {
+                    playNextAyah(); // Play the next Ayah when the current one ends
+                };
+            } else {
+                currentAyahIndex = 0; // Reset index after playing all Ayahs
+            }
+        }
+
+        // Handle Surah selection from the dropdown
+        function handleSurahSelection() {
+            const surahSelect = document.getElementById('surahSelect');
+            const selectedSurah = surahSelect.value;
+            if (selectedSurah) {
+                fetchSurahContent(selectedSurah);
+                surahSelect.blur(); // Close the dropdown
+            }
+        }
+
+        // Initialize the page by fetching Surahs
+        fetchSurahs();
+    </script>
+</body>
+</html>
