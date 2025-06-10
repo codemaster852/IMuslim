@@ -1,0 +1,442 @@
+/* Main Styles */
+:root {
+    --primary-color: #0a4d4a; /* Deep Teal */
+    --secondary-color: #0ca59e; /* Lighter Teal */
+    --accent-color: #f5b041; /* Gold */
+    --text-color: #333;
+    --light-text-color: #f8f9fa;
+    --bg-color: #fdfdfd;
+    --card-bg: #ffffff;
+    --font-arabic: 'Tajawal', sans-serif;
+    --font-quran: 'Amiri', serif;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-arabic);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.7;
+    direction: rtl;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layout */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+/* Header & Navigation */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.logo {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s, transform 0.2s;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Hero Section (Homepage) */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1200x400/0a4d4a/ffffff?text=Imuslim') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* Main Content & Cards */
+.main-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.feature-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0b8a82;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn.active {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* Quran Page */
+.quran-body {
+    font-family: var(--font-quran);
+}
+.surah-select-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+#surahSelect {
+    font-family: var(--font-arabic);
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.surah-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.surah-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+.surah-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+.surah-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+.ayah-list {
+    list-style: none;
+}
+.ayah-item {
+    font-size: 1.8rem;
+    line-height: 2.5;
+    margin-bottom: 1rem;
+    text-align: right;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.ayah-item:hover {
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+.ayah-number {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-left: 10px;
+}
+#audioPlayer {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+
+/* Hadith & Azkar Page */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+.hadith-card, .azkar-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+    border-right: 4px solid var(--secondary-color);
+}
+.hadith-text, .azkar-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+.hadith-reference {
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+.azkar-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Prayer Times Page */
+.prayer-page-container {
+    max-width: 800px;
+}
+#cityInput {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.prayer-times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+.prayer-time-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.prayer-time-card h2 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+.prayer-time-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+#date {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+
+/* 99 Names Page */
+.names-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    text-align: center;
+}
+.name-box {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: transform 0.2s, background-color 0.2s;
+}
+.name-box:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: default;
+}
+
+/* Chatbot Page */
+.chat-container {
+    max-width: 600px;
+    height: 70vh;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+#chat-box {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+#input-container {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+#user-input {
+    flex-grow: 1;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+#input-container button {
+    padding: 0.8rem 1.5rem;
+}
+.message {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    max-width: 80%;
+    line-height: 1.5;
+}
+.user-message {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: left;
+    margin-left: auto;
+    border-bottom-right-radius: 0;
+}
+.bot-message {
+    background-color: #e9e9e9;
+    color: var(--text-color);
+    text-align: left;
+    margin-right: auto;
+    border-bottom-left-radius: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 70px; /* Adjust based on navbar height */
+        left: 0;
+        padding: 1rem 0;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .main-title {
+        font-size: 2rem;
+    }
+    .features {
+        grid-template-columns: 1fr;
+    }
+    .prayer-times-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
