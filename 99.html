@@ -1,304 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6278705209941977"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMuslim - Homepage</title>
-    <style>
-        .header {
-  background-color: black; /* Background color of the header */
-  color: white; /* Text color */
-  padding: 20px; /* Space inside the header */
-  text-align: center; /* Center align the text */
-  position: fixed; /* Keep the header at the top */
-  top: 0;
-  width: 100%; /* Stretch header to full width */
-  z-index: 1000; /* Make sure it stays above other elements */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  text-decoration: none;
-  text-decoration-line:none ;
-  
-}
-        .footer {
-  text-align: center;
-  padding: 20px;
-  background-color: black; /* لون الخلفية */
-  color: white; /* لون النص */
-  font-size: 14px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #ccc; /* خط علوي لفصل الفوتر */
-}
-.navigation {
-  margin-top: 10px;
-}
-
-.navigation a {
-  color: white; /* Link color */
-  text-decoration: none; /* Remove underline */
-  margin: 0 15px; /* Spacing between links */
-  font-weight: bold; /* Bold text for links */
-}
-
-.navigation a:hover {
-  text-decoration: underline; /* Add underline on hover */
-  background:white;
-  color:black;
-  padding:3px;
-}
-.dropdown-list {
-  margin: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.dropdown-item {
-  border-bottom: 1px solid #ddd;
-}
-
-.dropdown-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  background: #f4f4f4;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.dropdown-header:hover {
-  background: #e0e0e0;
-}
-
-.dropdown-content {
-  padding: 15px;
-  background: white;
-  display: none;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.dropdown-content p {
-  margin: 0;
-}
-
-.toggle-icon {
-  font-size: 18px;
-}
-.active{
-  background:green;
-  color:white;
-  padding:10px;
-}
-.num1:hover{
-  background:black;
-  padding:10px;
-  font-size: 20px;
-  color:white;
-  width:300px
-}
-body {
-      background: #f0f8ff;
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      padding: 20px;
-      direction: rtl; /* يبدأ من اليمين */
-    }
-    h1 {
-      color: #004d40;
-      margin-bottom: 30px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      justify-items: center;
-    }
-    .name-box {
-      background-color: #e0f7fa;
-      color: #006064;
-      padding: 10px;
-      border-radius: 15px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      width: 100%;
-      max-width: 250px;
-    }
-    .name-box:hover {
-      background-color: #b2ebf2;
-      transform: scale(1.05);
-      cursor: pointer;
-    }
-    @media (max-width: 600px) {
-  h1 {
-    font-size: 1.5em;
-  }
-
-  input[type="text"] {
-    width: 90%;
-    font-size: 0.9em;
-  }
-
-  .prayer p {
-    font-size: 1em;
-  }
-
-  .prayer {
-    padding: 10px;
-    box-shadow: none;
-  }
-  .header{
-  width:400px;
-  height:70px;
-}
-}
-.header{
-  width:100%;
-  height:70px;
-}
-div{
-  width:100px;
-}
-.prayer:hover {
-  transform: scale(1.03);
-  transition: transform 0.3s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-    </style>
+    <title>أسماء الله الحسنى - Imuslim</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="navigation">
-            <a href="homepage.html"><b><i>I</i></b>Muslim</a>
-            <a href="azkar.html">أذكار</a>
-        <a href="hadeth.html">حديث</a>
-        <a href="quran.html">قران</a>
-        <a href="99.html">أسماء الله الحسنى</a>
-        <a href="chatbot.html">chatbot</a>
-        <a href="1.html">مواقيت الصلاة</a>
-        </nav>
-       
-    </header>
-    
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <center>
-      
-<br>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Imuslim</a>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="quran.html">القرآن الكريم</a></li>
+                <li><a href="hadeth.html">الأحاديث</a></li>
+                <li><a href="azkar.html">الأذكار</a></li>
+                <li><a href="1.html">مواقيت الصلاة</a></li>
+                <li><a href="99.html" class="active">أسماء الله الحسنى</a></li>
+                <li><a href="chatbot.html">الدردشة الإسلامية</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="grid">
-  <div class="name-box">الله1️⃣</div>
-  <div class="name-box">الرحمن2️⃣</div>
-  <div class="name-box">الرحيم3️⃣</div>
-  <div class="name-box">الملك4️⃣</div>
-  <div class="name-box">القدوس5️⃣</div>
-  <div class="name-box">السلام6️⃣</div>
-  <div class="name-box">المؤمن7️⃣</div>
-  <div class="name-box">المهيمن8️⃣</div>
-  <div class="name-box">العزيز9️⃣</div>
-  <div class="name-box"> الجبار🔟</div>
-  <div class="name-box"> المتكبر⏸️ </div>
-  <div class="name-box">الخالق1️⃣2️⃣</div>
-  <div class="name-box">البارئ1️⃣3️⃣</div>
-  <div class="name-box">المصور1️⃣4️⃣</div>
-  <div class="name-box">الغفار1️⃣5️⃣</div>
-  <div class="name-box">القهار1️⃣6️⃣</div>
-  <div class="name-box">الوهاب1️⃣7️⃣</div>
-  <div class="name-box">الرزاق1️⃣8️⃣</div>
-  <div class="name-box">الفتاح1️⃣9️⃣</div>
-  <div class="name-box">العليم2️⃣0️⃣</div>
-  <div class="name-box">القابض2️⃣1️⃣</div>
-  <div class="name-box">الباسط2️⃣2️⃣</div>
-  <div class="name-box">الخافض2️⃣3️⃣</div>
-  <div class="name-box">الرافع2️⃣4️⃣</div>
-  <div class="name-box">المعز2️⃣5️⃣</div>
-  <div class="name-box">المذل2️⃣6️⃣</div>
-  <div class="name-box">السميع2️⃣7️⃣</div>
-  <div class="name-box">البصير2️⃣8️⃣</div>
-  <div class="name-box">الحكم2️⃣9️⃣</div>
-  <div class="name-box">العدل3️⃣0️⃣</div>
-  <div class="name-box">اللطيف3️⃣1️⃣</div>
-  <div class="name-box">الخبير3️⃣2️⃣</div>
-  <div class="name-box">الحليم3️⃣3️⃣</div>
-  <div class="name-box">العظيم3️⃣4️⃣</div>
-  <div class="name-box">الغفور3️⃣5️⃣</div>
-  <div class="name-box">الشكور3️⃣6️⃣</div>
-  <div class="name-box">العلي3️⃣7️⃣</div>
-  <div class="name-box">الكبير3️⃣8️⃣</div>
-  <div class="name-box">الحفيظ3️⃣9️⃣</div>
-  <div class="name-box">المقيت4️⃣0️⃣</div>
-  <div class="name-box">الحسيب4️⃣1️⃣</div>
-  <div class="name-box">الجليل4️⃣2️⃣</div>
-  <div class="name-box">الكريم4️⃣3️⃣</div>
-  <div class="name-box">الرقيب4️⃣4️⃣</div>
-  <div class="name-box">المجيب4️⃣5️⃣</div>
-  <div class="name-box">الواسع4️⃣6️⃣</div>
-  <div class="name-box">الحكيم4️⃣7️⃣</div>
-  <div class="name-box">الودود4️⃣8️⃣</div>
-  <div class="name-box">المجيد4️⃣9️⃣</div>
-  <div class="name-box">الباعث5️⃣0️⃣</div>
-  <div class="name-box">الشهيد5️⃣1️⃣</div>
-  <div class="name-box">الحق5️⃣2️⃣</div>
-  <div class="name-box">الوكيل5️⃣3️⃣</div>
-  <div class="name-box">القوي5️⃣4️⃣</div>
-  <div class="name-box">المتين5️⃣5️⃣</div>
-  <div class="name-box">الولي5️⃣6️⃣</div>
-  <div class="name-box">الحميد5️⃣7️⃣</div>
-  <div class="name-box">المحصي5️⃣8️⃣</div>
-  <div class="name-box">المبدئ5️⃣9️⃣</div>
-  <div class="name-box">المعيد6️⃣0️⃣</div>
-  <div class="name-box">المحيي6️⃣1️⃣</div>
-  <div class="name-box">المميت6️⃣2️⃣</div>
-  <div class="name-box">الحي6️⃣3️⃣</div>
-  <div class="name-box">القيوم6️⃣4️⃣</div>
-  <div class="name-box">الواجد6️⃣5️⃣</div>
-  <div class="name-box">الماجد6️⃣6️⃣</div>
-  <div class="name-box">الواحد6️⃣7️⃣</div>
-  <div class="name-box">الصمد6️⃣8️⃣</div>
-  <div class="name-box">القادر6️⃣9️⃣</div>
-  <div class="name-box">المقتدر7️⃣0️⃣</div>
-  <div class="name-box">المقدم7️⃣1️⃣</div>
-  <div class="name-box">المؤخر7️⃣2️⃣</div>
-  <div class="name-box">الأول7️⃣3️⃣</div>
-  <div class="name-box">الآخر7️⃣4️⃣</div>
-  <div class="name-box">الظاهر7️⃣5️⃣</div>
-  <div class="name-box">الباطن7️⃣6️⃣</div>
-  <div class="name-box">الوالي7️⃣7️⃣</div>
-  <div class="name-box">المتعالي7️⃣8️⃣</div>
-  <div class="name-box">البر7️⃣9️⃣</div>
-  <div class="name-box">التواب8️⃣0️⃣</div>
-  <div class="name-box">المنتقم8️⃣1️⃣</div>
-  <div class="name-box">العفو8️⃣2️⃣</div>
-  <div class="name-box">الرؤوف8️⃣3️⃣</div>
-  <div class="name-box">مالك الملك8️⃣4️⃣</div>
-  <div class="name-box">ذو الجلال والإكرام8️⃣5️⃣</div>
-  <div class="name-box">المقسط8️⃣6️⃣</div>
-  <div class="name-box">الجامع8️⃣7️⃣</div>
-  <div class="name-box">الغني8️⃣8️⃣</div>
-  <div class="name-box">المغني8️⃣9️⃣</div>
-  <div class="name-box">المانع9️⃣0️⃣</div>
-  <div class="name-box">الضار9️⃣1️⃣</div>
-  <div class="name-box">النافع9️⃣2️⃣</div>
-  <div class="name-box">النور9️⃣3️⃣</div>
-  <div class="name-box">الهادي9️⃣4️⃣</div>
-  <div class="name-box">البديع9️⃣5️⃣</div>
-  <div class="name-box">الباقي9️⃣6️⃣</div>
-  <div class="name-box">الوارث9️⃣7️⃣</div>
-  <div class="name-box">الرشيد9️⃣8️⃣</div>
-  <div class="name-box">الصبور9️⃣9️⃣</div>
-</div>
-    </center>
-   
-    
+    <main class="container">
+        <h1 class="main-title">أسماء الله الحسنى</h1>
+        <div class="names-grid" id="names-grid">
+            <!-- Names will be populated by JS -->
+        </div>
+    </main>
 
-  
+    <footer>
+        <p>© 2024 Imuslim. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        const namesGrid = document.getElementById('names-grid');
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        const namesOfAllah = [
+            "الله", "الرحمن", "الرحيم", "الملك", "القدوس", "السلام", "المؤمن", "المهيمن", "العزيز", "الجبار", "المتكبر", "الخالق", "البارئ", "المصور", "الغفار", "القهار", "الوهاب", "الرزاق", "الفتاح", "العليم", "القابض", "الباسط", "الخافض", "الرافع", "المعز", "المذل", "السميع", "البصير", "الحكم", "العدل", "اللطيف", "الخبير", "الحليم", "العظيم", "الغفور", "الشكور", "العلي", "الكبير", "الحفيظ", "المقيت", "الحسيب", "الجليل", "الكريم", "الرقيب", "المجيب", "الواسع", "الحكيم", "الودود", "المجيد", "الباعث", "الشهيد", "الحق", "الوكيل", "القوي", "المتين", "الولي", "الحميد", "المحصي", "المبدئ", "المعيد", "المحيي", "المميت", "الحي", "القيوم", "الواجد", "الماجد", "الواحد", "الأحد", "الصمد", "القادر", "المقتدر", "المقدم", "المؤخر", "الأول", "الآخر", "الظاهر", "الباطن", "الوالي", "المتعالي", "البر", "التواب", "المنتقم", "العفو", "الرؤوف", "مالك الملك", "ذو الجلال والإكرام", "المقسط", "الجامع", "الغني", "المغني", "المانع", "الضار", "النافع", "النور", "الهادي", "البديع", "الباقي", "الوارث", "الرشيد", "الصبور"
+        ];
+
+        namesOfAllah.forEach(name => {
+            const nameDiv = document.createElement('div');
+            nameDiv.className = 'name-box';
+            nameDiv.textContent = name;
+            namesGrid.appendChild(nameDiv);
+        });
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
